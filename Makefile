@@ -19,6 +19,10 @@ vet:
 lint:
 	golangci-lint run ./...
 
+# Run the tests
+.PHONY: test
+	go test ./...
+
 # Build the is-openshift binary
 .PHONY: build
 build-is-openshift: fmt vet
