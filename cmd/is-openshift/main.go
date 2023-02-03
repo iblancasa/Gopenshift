@@ -17,8 +17,8 @@ import (
 var scheme *k8sruntime.Scheme
 
 func init() {
-    scheme = k8sruntime.NewScheme()
-    utilruntime.Must(configV1.AddToScheme(scheme))
+	scheme = k8sruntime.NewScheme()
+	utilruntime.Must(configV1.AddToScheme(scheme))
 }
 
 func main() {
@@ -28,15 +28,13 @@ func main() {
 
 	pflag.StringVar(&kubeconfigPath, "kubeconfig-path", defaultKubeconfigPath, "Absolute path to the KubeconfigPath file")
 
-
-
 	config, err := clientcmd.BuildConfigFromFlags("", kubeconfigPath)
 	if err != nil {
 		fmt.Printf("Error reading the kubeconfig: %s\n", err.Error())
 		os.Exit(1)
 	}
 
-	isOpenShift, err:= is_openshift.IsOpenShift(config)
+	isOpenShift, err := is_openshift.IsOpenShift(config)
 	if err != nil {
 		fmt.Printf("Error checking if running against an OpenShif cluster: %s\n", err.Error())
 		os.Exit(1)

@@ -7,7 +7,7 @@ import (
 	"k8s.io/client-go/rest"
 )
 
-// IsOpenShift checks if the client is connected to an OpenShift server
+// IsOpenShift checks if the client is connected to an OpenShift server.
 func IsOpenShift(config *rest.Config) (bool, error) {
 	dcl, err := discovery.NewDiscoveryClientForConfig(config)
 	if err != nil {

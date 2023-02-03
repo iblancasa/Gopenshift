@@ -21,6 +21,6 @@ lint:
 
 # Build the is-openshift binary
 .PHONY: build
-build-is-openshift: fmt
+build-is-openshift: fmt vet
 	${GO_FLAGS} go build -ldflags $(LD_FLAGS) -o $(BIN_DIR)/is-openshift cmd/is-openshift/main.go
 
